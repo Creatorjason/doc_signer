@@ -161,7 +161,10 @@ async def upload_zip_files(file1: UploadFile, file2: UploadFile, signature_image
         #         # process_folder(folder_path, signature_image_path)
         #         process_folder(folder_path, "sig.jpg")
 
-        return JSONResponse(content={"message": "Files unzipped and processed successfully"})
+        return JSONResponse(content={
+            "message": "Files unzipped and processed successfully",
+            "download_link": "https://doc-signer.onrender.com/download/all_signed"
+            })
     except Exception as e:
         return JSONResponse(content={"message": f"An error occurred: {str(e)}"}, status_code=500)
 
